@@ -1,0 +1,27 @@
+{
+  "name": "fbweatherbot",
+  "version": "1.0.0",
+  "description": "FB bot to relay weather information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkanna0988/fbweatherbotrepo.git"
+  },
+  "keywords": [
+    "fbweatherbot"
+  ],
+  "author": "Ramana Rajesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkanna0988/fbweatherbotrepo/issues"
+  },
+  "homepage": "https://github.com/rkanna0988/fbweatherbotrepo#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "request": "^2.81.0"
+  }
+}
