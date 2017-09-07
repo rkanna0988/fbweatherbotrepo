@@ -38,7 +38,21 @@ app.post('/webhook/', function (req, res) {
 	    let sender = event.sender.id
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
-		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+			if(text === 'weather')
+			{
+				let url = "http://api.openweathermap.org/data/2.5/weather?q=portland&units=imperial&appid=bf1c64016018980463a350575ffdb905"
+request(url, function (err, response, body) {
+  if(err){
+    console.log('error:', err);
+  } else {
+    let weather = JSON.parse(body)
+    let message = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+	sendTextMessage(sender, "Text received, echo: " + message.substring(0, 200))
+  }
+});				
+			}
+			else
+				sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 	    }
     }
     res.sendStatus(200)
