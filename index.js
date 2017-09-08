@@ -52,7 +52,7 @@ request(url, function (err, response, body) {
 });				
 			}
 			else
-				sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+				sendTextMessage(sender, text.substring(0, 200))
 	    }
     }
     res.sendStatus(200)
