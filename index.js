@@ -47,7 +47,7 @@ request(url, function (err, response, body) {
   } else {
     let weather = JSON.parse(body)
     let message = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-	sendTextMessage(sender, "Text received, echo: " + message.substring(0, 200))
+	sendTextMessage(sender, message.substring(0, 200))
   }
 });				
 			}
