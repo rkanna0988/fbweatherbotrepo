@@ -63,10 +63,27 @@ app.post('/webhook/', function (req, res) {
 				  if(err){
 					console.log('error:', err);
 				  } else {
+
 					let weather = JSON.parse(body)
-					let message = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+
+					switch(flag){
+					case 0:
+						value = weather.main.temp + "degrees "
+						break
+					case 1:
+						value = weather.main.pressure
+						break
+					case 2:
+						value = weather.main.humidity
+						break
+					case 3:
+						value = weather.wind
+						break								
+					}
+					
+					let message = `It's ${value} in ${weather.name}!`;
 					sendTextMessage(sender, message.substring(0, 200))
-				  }
+				}
 				});				
 			}
 			else
