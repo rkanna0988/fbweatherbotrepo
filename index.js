@@ -58,7 +58,7 @@ app.post('/webhook/', function (req, res) {
 			if(flag >= 0)
 			{
 				let city = res[2];
-				let url = "http://api.openweathermap.org/data/2.5/weather?q=" + city +"&units=imperial&appid=bf1c64016018980463a350575ffdb905"
+				let url = "http://api.openweathermap.org/data/2.5/weather?q=" + city +"&units=metric&appid=bf1c64016018980463a350575ffdb905"
 				request(url, function (err, response, body) {
 				  if(err){
 					console.log('error:', err);
