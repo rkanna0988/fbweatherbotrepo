@@ -52,6 +52,8 @@ app.post('/webhook/', function (req, res) {
 						flag = idx
 				}
 			}
+			
+			text = text + "flag = " + flag
 			console.log("flag is : " + flag)
 			
 			if(text === 'weather')
