@@ -38,6 +38,15 @@ app.post('/webhook/', function (req, res) {
 	    let sender = event.sender.id
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
+			
+			console.log("User has passed : " + text)
+			
+			let keywords = ["temperature", "pressure", "humidity", "wind"]
+			let res = text.split(" ")
+			let compare = res[0].toLocaleLowerCase()
+			let flag = -1
+			let value = "output"
+			
 			if(text === 'weather')
 			{
 				let url = "http://api.openweathermap.org/data/2.5/weather?q=portland&units=imperial&appid=bf1c64016018980463a350575ffdb905"
