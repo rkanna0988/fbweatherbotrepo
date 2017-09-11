@@ -68,20 +68,20 @@ app.post('/webhook/', function (req, res) {
 
 					switch(flag){
 					case 0:
-						value = weather.main.temp + "degrees "
+						value = weather.main.temp + " degrees "
 						break
 					case 1:
-						value = weather.main.pressure
+						value = weather.main.pressure + " mb "
 						break
 					case 2:
-						value = weather.main.humidity
+						value = weather.main.humidity + " % "
 						break
 					case 3:
-						value = weather.wind
+						value = "Wind speed is  " + weather.wind.speed + " " + weather.wind.deg + " degrees "
 						break								
 					}
 					
-					let message = `It's ${value} in ${weather.name}!`;
+					let message = `${value} in ${weather.name}!`;
 					sendTextMessage(sender, message.substring(0, 200))
 				}
 				});				
