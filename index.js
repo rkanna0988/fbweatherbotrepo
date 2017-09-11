@@ -39,6 +39,8 @@ app.post('/webhook/', function (req, res) {
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
 			
+			console.log("User has passed : " + text);
+			
 			var keywords = ["temperature", "pressure", "humidity", "wind"];
 			var res = text.split(" ");
 			var compare = res[0].toLocaleLowerCase();
