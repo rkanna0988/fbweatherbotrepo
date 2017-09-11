@@ -46,19 +46,18 @@ app.post('/webhook/', function (req, res) {
 			let compare = res[0].toLocaleLowerCase()
 			let flag = -1
 			let value = "output"
-			if(keywords.length >= 2){
+			if(res.length >= 2){
 				for(var idx = 0; idx < keywords.length; idx++){
 					if(compare == keywords[idx])
 						flag = idx
 				}
 			}
-			
-			text = text + "flag = " + flag
+						
 			console.log("flag is : " + flag)
 			
-			if(text === 'weather')
+			if(flag >= 0)
 			{
-				let url = "http://api.openweathermap.org/data/2.5/weather?q=portland&units=imperial&appid=bf1c64016018980463a350575ffdb905"
+				let url = "http://api.openweathermap.org/data/2.5/weather?q=" + city +"&units=imperial&appid=bf1c64016018980463a350575ffdb905"
 				request(url, function (err, response, body) {
 				  if(err){
 					console.log('error:', err);
