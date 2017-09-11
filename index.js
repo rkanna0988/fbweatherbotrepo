@@ -38,50 +38,20 @@ app.post('/webhook/', function (req, res) {
 	    let sender = event.sender.id
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
-			
-			console.log("User has passed : " + text);
-			
-			var keywords = ["temperature", "pressure", "humidity", "wind"];
-			var res = text.split(" ");
-			var compare = res[0].toLocaleLowerCase();
-			var flag = -1;
-			var value = "output";
-/*			
-			for(var idx = 0; idx < keywords.length; idx++){
-				if(compare === keywords[idx])
-					flag = idx;
-			}
-			
-			if(flag >= 0)
+			if(text === 'weather')
 			{
-				var city = res[2];
-				let url = "http://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=imperial&appid=bf1c64016018980463a350575ffdb905"
+				let url = "http://api.openweathermap.org/data/2.5/weather?q=portland&units=imperial&appid=bf1c64016018980463a350575ffdb905"
 				request(url, function (err, response, body) {
 				  if(err){
 					console.log('error:', err);
 				  } else {
 					let weather = JSON.parse(body)
-
-					switch(flag){
-					case 0:
-						value = weather.main.temp + "degrees ";
-						break;
-					case 1:
-						value = weather.main.pressure;
-						break;		
-					case 2:
-						value = weather.main.humidity;
-						break;						
-					case 3:
-						value = weather.wind;
-						break;												
-					}
-					let message = `It's ${value} in ${weather.name}!`;
+					let message = `It's ${weather.main.temp} degrees in ${weather.name}!`;
 					sendTextMessage(sender, message.substring(0, 200))
 				  }
 				});				
-			}*/
-			//else
+			}
+			else
 				sendTextMessage(sender, text.substring(0, 200))
 	    }
     }
