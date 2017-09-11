@@ -45,7 +45,8 @@ app.post('/webhook/', function (req, res) {
 			var res = text.split(" ");
 			var compare = res[0].toLocaleLowerCase();
 			var flag = -1;
-			
+			var value = "output";
+/*			
 			for(var idx = 0; idx < keywords.length; idx++){
 				if(compare === keywords[idx])
 					flag = idx;
@@ -60,6 +61,7 @@ app.post('/webhook/', function (req, res) {
 					console.log('error:', err);
 				  } else {
 					let weather = JSON.parse(body)
+
 					switch(flag){
 					case 0:
 						value = weather.main.temp + "degrees ";
@@ -78,8 +80,8 @@ app.post('/webhook/', function (req, res) {
 					sendTextMessage(sender, message.substring(0, 200))
 				  }
 				});				
-			}
-			else
+			}*/
+			//else
 				sendTextMessage(sender, text.substring(0, 200))
 	    }
     }
