@@ -46,6 +46,11 @@ app.post('/webhook/', function (req, res) {
 			let compare = res[0].toLocaleLowerCase()
 			let flag = -1
 			let value = "output"
+			for(var idx = 0; idx < keywords.length; idx++){
+				if(compare == keywords[idx])
+					flag = idx
+			}
+			console.log("flag is : " + flag)
 			
 			if(text === 'weather')
 			{
